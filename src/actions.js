@@ -14,7 +14,11 @@ export function addToCart(id) {
     };
   }
   
-//   export function applyDiscount(discount) {
-//     return { type: APPLY_DISCOUNT, discount };
-  
+  export function calculateTotalQuantity(cart) {
+    let totalQuantity = 0;
+    for (let id in cart) {
+      totalQuantity += cart[id];
+    }
+    return totalQuantity;
+  }
   

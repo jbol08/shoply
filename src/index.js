@@ -3,17 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 // import store from './app/store';
+import '@fortawesome/fontawesome-free/js/all.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './rootReducer';
 import { createStore } from "redux";
+import {BrowserRouter} from 'react-router-dom'
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
